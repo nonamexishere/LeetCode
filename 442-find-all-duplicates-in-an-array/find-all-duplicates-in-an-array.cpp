@@ -2,10 +2,10 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         vector<int> ans;
-        unordered_map<int, int> m;
-        for (int& i : nums) {
-            m[i]++;
-            if (m[i] == 2) ans.push_back(i);
+        vector<int> b(100001, 0);
+        for (int& num : nums) {
+            if (b[num] == 1) {ans.push_back(num);}
+            b[num]++;
         }
         return ans;
     }
