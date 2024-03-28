@@ -4,7 +4,7 @@ public:
         int size = nums.size();
         int l = 0;
         int r = 0;
-        map<int, int> m;
+        unordered_map<int, int> m;
         int mx = 0;
         while (r < size || l > r) {
             if (m[nums[r]] < k) {
