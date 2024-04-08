@@ -2,14 +2,13 @@ class Solution {
 public:
     int countStudents(vector<int>& students, vector<int>& sandwiches) {
         queue<int> q;
-        stack<int> s;
         for (int st : students) q.push(st);
-        for (auto it = sandwiches.rbegin(); it != sandwiches.rend(); it++) s.push(*it);
         int counter = 0;
+        int i = 0;
         while (counter < students.size() && !q.empty()) {
-            if (q.front() == s.top()) {
+            if (q.front() == sandwiches[i]) {
                 q.pop();
-                s.pop();
+                i++;
                 counter = 0;
             }
             else {
