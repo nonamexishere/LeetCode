@@ -7,11 +7,11 @@ public:
             adj[edges[i][0]].push_back(edges[i][1]);
             adj[edges[i][1]].push_back(edges[i][0]);
         }
-        queue<int> q;
+        stack<int> q;
         q.push(source);
         visited[source] = true;
         while (!q.empty()) {
-            int top = q.front();
+            int top = q.top();
             q.pop();
             if (top == destination) return true;
             for (int node : adj[top]) {
