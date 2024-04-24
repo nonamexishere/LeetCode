@@ -8,7 +8,7 @@ public:
         return v[n];
     }
     int tribonacci(int n) {
-        vector<int> v(n + 1, -1);
+        vector<int> v(38, -1);
         return helper(n, v);
     }
 };
