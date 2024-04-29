@@ -8,13 +8,12 @@ public:
         int tmp_c = c;
         while (x) {
             if (x & 1 && !(tmp_c & 1)) {
-                counter += 1;
+                counter++;
             }
             tmp_c >>= 1;
             x >>= 1;
         }
-        int t = 0;
-        while (t++ != 32) {
+        while (y) {
             counter += (y & 1);
             y >>= 1;
         }
