@@ -8,6 +8,12 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+static const int __ = [](){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    return 0;
+}();
 class Solution {
 public:
     ListNode* removeNodes(ListNode* head) {
