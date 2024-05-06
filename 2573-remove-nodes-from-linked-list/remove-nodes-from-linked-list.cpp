@@ -11,46 +11,23 @@
 class Solution {
 public:
     ListNode* removeNodes(ListNode* head) {
-        vector<int> v;
         ListNode* tmp = head;
-        while (tmp) {
-            v.push_back(tmp->val);
-            tmp = tmp->next;
-        }
         stack<int> s;
         int val = 0;
-        for (int i = v.size()-1; i >= 0; --i) {
-            if (v[i] >= val) {
-                s.push(v[i]);
-                val = v[i];
-            }
+        while (tmp) {
+            s.push(tmp->val);
+            tmp = tmp->next;
         }
-        ListNode* par;
-        bool isHead = false;
+        ListNode* ans = nullptr;
         while (s.size()) {
-            if (s.top() != head->val && !isHead) {
-                ListNode* t = head;
-                head = head->next;
-                delete t;
+            if (s.top() >= val) {
+                tmp = ans;
+                ans = new ListNode(s.top());
+                ans->next = tmp;
+                val = s.top();
             }
-            else if (s.top() == head->val && !isHead) {
-                s.pop();
-                tmp = head->next;
-                par = head;
-                isHead = true;
-            }
-            else if (s.top() != tmp->val) {
-                ListNode* t = tmp;
-                par->next = tmp->next;
-                tmp = par->next;
-                delete t;
-            }
-            else if (s.top() == tmp->val) {
-                s.pop();
-                par = tmp;
-                tmp = tmp->next;
-            }
+            s.pop();
         }
-        return head;
+        return ans;
     }
 };
