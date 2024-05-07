@@ -21,13 +21,13 @@ public:
             tmp = tmp->next;
         }
         while (tmp->next) {
-            tmp->val += tmp->val;
+            tmp->val <<= 1;
             tmp->val %= 10;
             if (tmp->next->val > 4) tmp->val++;
             tmp = tmp->next;
         }
-        tmp->val += tmp->val;
-        tmp->val = tmp->val % 10;
+        tmp->val <<= 1;
+        tmp->val %= 10;
         return head;
     }
 };
