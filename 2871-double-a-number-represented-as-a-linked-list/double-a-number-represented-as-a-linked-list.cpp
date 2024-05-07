@@ -15,11 +15,9 @@ public:
         bool addOne = false;
         if (head->val >= 5) addOne = 1;
         while (tmp) {
-            tmp->val *= 2;
+            tmp->val += tmp->val;
             tmp->val %= 10;
-            if (tmp->next) {
-                tmp->val += ((tmp->next->val * 2) / 10);
-            }
+            if (tmp->next) tmp->val += (tmp->next->val / 5);
             tmp = tmp->next;
         }
         if (addOne) {
