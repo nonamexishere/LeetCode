@@ -20,12 +20,14 @@ public:
             head = tmp;
             tmp = tmp->next;
         }
-        while (tmp) {
+        while (tmp->next) {
             tmp->val += tmp->val;
             tmp->val %= 10;
-            if (tmp->next) if (tmp->next->val > 4) tmp->val++;
+            if (tmp->next->val > 4) tmp->val++;
             tmp = tmp->next;
         }
+        tmp->val += tmp->val;
+        tmp->val = tmp->val % 10;
         return head;
     }
 };
