@@ -18,7 +18,7 @@ public:
         if (head->val >= 5) addOne = 1;
         while (tmp) {
             tmp->val += tmp->val;
-            tmp->val %= 10;
+            if (tmp->val > 9) tmp->val %= 10;
             if (tmp->next) tmp->val += (tmp->next->val / 5);
             tmp = tmp->next;
         }
