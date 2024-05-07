@@ -23,7 +23,7 @@ public:
         while (tmp) {
             tmp->val += tmp->val;
             tmp->val %= 10;
-            if (tmp->next) tmp->val += (tmp->next->val / 5);
+            if (tmp->next) if (tmp->next->val > 4) tmp->val++;
             tmp = tmp->next;
         }
         return head;
