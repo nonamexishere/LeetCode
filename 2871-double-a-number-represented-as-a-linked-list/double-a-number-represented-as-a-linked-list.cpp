@@ -14,20 +14,18 @@ public:
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         ListNode* tmp = head;
-        bool addOne = false;
-        if (head->val >= 5) addOne = 1;
+        if (head->val > 4) {
+            tmp = new ListNode(1);
+            tmp->next = head;
+            head = tmp;
+            tmp = tmp->next;
+        }
         while (tmp) {
             tmp->val += tmp->val;
             tmp->val %= 10;
             if (tmp->next) tmp->val += (tmp->next->val / 5);
             tmp = tmp->next;
         }
-        if (addOne) {
-            tmp = new ListNode(1);
-            tmp->next = head;
-        }
-        else tmp = head;
-        
-        return tmp;
+        return head;
     }
 };
