@@ -5,7 +5,7 @@ public:
         sort(happiness.begin(), happiness.end(), greater<int>());
         long long ans = 0;
         for (int i = 0; i < k; ++i) {
-            if (i > happiness[i]) continue;
+            if (i > happiness[i]) break;
             ans += happiness[i] - i;
         }
         return ans;
