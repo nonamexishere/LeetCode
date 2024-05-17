@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    bool postorder(TreeNode* node, int target) {
+    bool postorder(TreeNode* node, int &target) {
         if (node->left) if(postorder(node->left, target)) node->left = nullptr;
         if (node->right) if(postorder(node->right, target)) node->right = nullptr;
         if (!node->left && !node->right) return node->val == target;
         return false;
     }
-    TreeNode* removeLeafNodes(TreeNode* root, int target) {
+    TreeNode* removeLeafNodes(TreeNode* root, int &target) {
         if (postorder(root, target)) return nullptr;
         else return root;
     }
