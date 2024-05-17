@@ -11,14 +11,9 @@
  */
 class Solution {
 public:
-    bool dfs(TreeNode* root) {
-        if (root->val == 0) return false;
-        if (root->val == 1) return true;
-        if (root->val == 2) return (dfs(root->left) | dfs(root->right));
-        if (root->val == 3) return (dfs(root->left) & dfs(root->right));
-        return 1;
-    }
     bool evaluateTree(TreeNode* root) {
-        return dfs(root);
+        if (root->val < 2) return root->val;
+        if (root->val == 2) return (evaluateTree(root->left) | evaluateTree(root->right));
+        return (evaluateTree(root->left) & evaluateTree(root->right));
     }
 };
