@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    bool postorder(TreeNode* node, int& target) {
+    bool postorder(TreeNode* node, int target) {
         if (node->left) if(postorder(node->left, target)) node->left = nullptr;
         if (node->right) if(postorder(node->right, target)) node->right = nullptr;
         if (!node->left && !node->right) return node->val == target;
