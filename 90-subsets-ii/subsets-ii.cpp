@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
         set<vector<int>> s;
         vector<vector<int>> ans;
         int size = nums.size();
@@ -10,7 +11,6 @@ public:
             for (int j = 0; j < size; ++j) {
                 if (i & (1 << j)) t_ans.push_back(nums[j]); 
             }
-            sort(t_ans.begin(), t_ans.end());
             if (s.insert(t_ans).second) ans.push_back(t_ans);
         }
         return ans;
