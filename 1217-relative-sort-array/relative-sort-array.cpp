@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        ios::sync_with_stdio(false);
         map<int, int> m1;
         vector<int> ans;
         for (int i = 0; i < arr1.size(); ++i) {
