@@ -1,15 +1,10 @@
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        vector<unsigned int> squares;
-        for (long long i = 0; i * i <= c; ++i) {
-            squares.push_back(i * i);
-        }
-        long long ans = c;
-        int l = 0, r = squares.size() - 1;
+        unsigned int l = 0, r = sqrt(c);
         while (l <= r) {
-            if (squares[l] + squares[r] == ans) return true;
-            else if (squares[l] + squares[r] < ans) l++;
+            if (l * l + r * r == c) return true;
+            else if (l * l + r * r < c) l++;
             else r--; 
         }
         return false;
