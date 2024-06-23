@@ -1,6 +1,9 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& nums, int limit) {
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
         map<int, int> m;
         int ans = 0;
         int l = 0, r = 0;
