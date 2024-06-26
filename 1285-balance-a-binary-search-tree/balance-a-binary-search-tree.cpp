@@ -38,6 +38,8 @@ public:
         }
     }
     TreeNode* balanceBST(TreeNode* root) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
         vector<int> v;
         inorder(root, v);
         TreeNode* node = new TreeNode;
