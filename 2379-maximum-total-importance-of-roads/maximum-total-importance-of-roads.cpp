@@ -1,6 +1,9 @@
 class Solution {
 public:
     long long maximumImportance(int n, vector<vector<int>>& roads) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         map<int, int> m;
         for (vector<int>& v : roads) {
             m[v[0]]++;
