@@ -4,24 +4,15 @@ public:
         ios::sync_with_stdio(false);
         cin.tie(nullptr);
         cout.tie(nullptr);
-        map<int, int> m;
-        for (vector<int>& v : roads) {
-            m[v[0]]++;
-            m[v[1]]++;
+        vector<int> v(n);
+        for (vector<int>& s : roads) {
+            v[s[0]]++;
+            v[s[1]]++;
         }
-        priority_queue<pair<int, int>> pq;
-        for (auto& pair : m) {
-            pq.push({pair.second, pair.first});
-        }
-        vector<int> coefficient(n);
-        while (!pq.empty()) {
-            auto top = pq.top();
-            pq.pop();
-            coefficient[top.second] = n--;
-        }
+        sort(v.begin(), v.end());
         long long ans = 0;
-        for (auto& pair : m) {
-            ans += (long long) coefficient[pair.first] * (long long) pair.second;
+        for (int i = 1; i <= n; ++i) {
+            ans += (long long) v[i - 1] * i;
         }
         return ans;
     }
