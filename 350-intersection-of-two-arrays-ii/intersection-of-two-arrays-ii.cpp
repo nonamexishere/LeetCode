@@ -1,23 +1,17 @@
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
         vector<int> ans;
-        sort(nums1.begin(), nums1.end());
-        sort(nums2.begin(), nums2.end());
-        int size1 = nums1.size();
-        int size2 = nums2.size();
-        int l1 = 0, l2= 0;
-        while (l1 < size1 && l2 < size2) {
-            if (nums1[l1] > nums2[l2]) {
-                l2++;
-            }
-            else if (nums1[l1] < nums2[l2]) {
-                l1++;
-            }
-            else {
-                ans.push_back(nums1[l1]);
-                l1++;
-                l2++;
+        unordered_map<int, int> m;
+        for (int& num : nums1) {
+            m[num]++;
+        }
+        for (int& num : nums2) {
+            if (m[num] > 0) {
+                m[num]--;
+                ans.push_back(num);
             }
         }
         return ans;
